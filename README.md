@@ -12,4 +12,4 @@ Latest version: 0.0.1:
 
 📦 Built with Mono
 
-❗ Im not trying to offend onyone, this game made for fun
+❗ Im not trying to offend anyone, this game made for fun
