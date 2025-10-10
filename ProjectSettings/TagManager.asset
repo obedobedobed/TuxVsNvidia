@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - ShotPoint
+  - Enemy
+  - Bullet
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Player
+  - Bullet
+  - Level
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: DownestLayer
+    uniqueID: 3928181119
+    locked: 0
+  - name: UnderPlayer
+    uniqueID: 1354025999
+    locked: 0
+  - name: Player
+    uniqueID: 1846786451
+    locked: 0
+  - name: UpperPlayer
+    uniqueID: 1779762289
+    locked: 0
+  - name: UppestLayer
+    uniqueID: 943981541
+    locked: 0
+  m_RenderingLayers:
+  - Default
