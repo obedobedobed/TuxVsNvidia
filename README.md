@@ -9,4 +9,5 @@ Latest version: 0.0.1:
 - Shotgun which shooting 5 bullets
 
 Avaible on Windows and Linux
+
 Built with Mono
