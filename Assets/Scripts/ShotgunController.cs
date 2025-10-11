@@ -12,6 +12,10 @@ public class ShotgunController : MonoBehaviour
     private bool looksRight = true;
     private Animator anim;
 
+    // For anim
+    [SerializeField] private bool isKnockbacking = false;
+    [SerializeField] private bool knockbackRight = false;
+
     private void OnEnable()
     {
         InputManager.Instance.actions.Player.Attack.performed += Shoot;
@@ -40,22 +44,38 @@ public class ShotgunController : MonoBehaviour
             )
         );
 
-        Vector2 direction = cursorPos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        if(!isKnockbacking)
+        {
+            Vector2 direction = cursorPos - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            
+            if (cursorPos.x < transform.position.x && looksRight)
+            {
+                Flip();
+            }
+            else if (cursorPos.x > transform.position.x && !looksRight)
+            {
+                Flip();
+            }
+        }
 
-        if (cursorPos.x < transform.position.x && looksRight)
-        {
-            Flip();
-        }
-        else if (cursorPos.x > transform.position.x && !looksRight)
-        {
-            Flip();
-        }
 
         if (coolDown < originalCoolDown)
         {
             coolDown += Time.deltaTime;
+        }
+
+        if (isKnockbacking)
+        {
+            if (!knockbackRight)
+            {
+                transform.Translate(Vector2.left * Time.deltaTime * 0.1f);
+            }
+            else if (knockbackRight)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * 0.1f);
+            }
         }
     }
 
