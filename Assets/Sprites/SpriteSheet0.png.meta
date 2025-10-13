@@ -376,7 +376,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,6 +385,94 @@ TextureImporter:
       bones: []
       spriteID: c8d6f16754cb9de12bd5861f7eef1086
       internalID: 825604652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonUnpressed
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 9, z: 6, w: 9}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121354dce5d862c1f8da5f58a1a80d25
+      internalID: -849545502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonPressed
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 166
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 10, z: 7, w: 10}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85578f6b4a25c9e9daf0f26b8e3c9706
+      internalID: 1631163621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayIcon
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 166
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a082e5517715b29689f61b7a5ce99790
+      internalID: 512183824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuitIcon
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 166
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899f38de6bda01ed382d7f2fea5fdb73
+      internalID: -941954145
       vertices: []
       indices: 
       edges: []
@@ -404,10 +492,14 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bullet: 825604652
+      ButtonPressed: 1631163621
+      ButtonUnpressed: -849545502
       NvidiaIdle1: 1822146866
       NvidiaIdle2: -1247126069
       NvidiaRun1: -1796229918
       NvidiaRun2: -840030009
+      PlayIcon: 512183824
+      QuitIcon: -941954145
       Shotgun1: -277887046
       Shotgun2: 1687598306
       Shotgun3: 60683151
