@@ -3,11 +3,10 @@ Game made with Unity about Tux which destroying NVidia
 
 🎮 Game with pixel graphics made with Unity (Version 6000.2.5f1) by one developer
 
-Latest version: 0.0.3:
+Latest version: 0.0.5:
 - Gameplay where Tux destroying Nvidia
 - Random enemies spawning
-- Shotgun which shooting 5 bullets
-- Game main menu (play or quit)
+- Shotgun which shooting 5 bullets in random range
 
 🖥 Avaible on Windows and Linux
 
