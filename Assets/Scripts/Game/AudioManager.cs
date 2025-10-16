@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static void PlaySFX(ref AudioSource source, bool stop)
+    public static async void PlaySFX(AudioSource source, bool stop)
     {
         if (source != null)
         {

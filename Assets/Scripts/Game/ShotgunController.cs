@@ -5,7 +5,7 @@ public class ShotgunController : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float coolDown;
-    [SerializeField] private Vector2 bulletsRange;
+    [SerializeField] private Range bulletsRange;
     [SerializeField] private int bulletsCount;
     [SerializeField] private AudioSource audShot;
     private float originalCoolDown;
@@ -93,7 +93,7 @@ public class ShotgunController : MonoBehaviour
                 (
                     transform.localEulerAngles.x,
                     transform.localEulerAngles.y,
-                    transform.localEulerAngles.z + Random.Range(bulletsRange.x, bulletsRange.y)
+                    transform.localEulerAngles.z + Random.Range(bulletsRange.MinimalValue, bulletsRange.MaximalValue)
                 );
 
                 Instantiate(bulletPrefab, shotPoint.position, targetRot);
@@ -103,7 +103,7 @@ public class ShotgunController : MonoBehaviour
 
             anim.SetTrigger("Shoot");
 
-            AudioManager.PlaySFX(ref audShot, false);
+            AudioManager.PlaySFX(audShot, false);
         }
     }
 
