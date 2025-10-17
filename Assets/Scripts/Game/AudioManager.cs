@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static async void PlaySFX(AudioSource source, bool stop)
+    public static void PlaySFX(AudioSource source, bool stop)
     {
         if (source != null)
         {
             if (!stop)
             {
+                source.volume *= GlobalVariables.SoundsVolume;
                 source.Play();
+                source.volume /= GlobalVariables.SoundsVolume;
             }
             else
             {

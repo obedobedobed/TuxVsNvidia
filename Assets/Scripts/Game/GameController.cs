@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
 
     public void DestroyCounterAdd()
     {
+        // Adding destroyed enemies and removing it from counter
         destroyedCounter++;
         enemiesCounter--;
     }

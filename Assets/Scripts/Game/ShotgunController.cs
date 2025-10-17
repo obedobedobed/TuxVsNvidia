@@ -32,6 +32,14 @@ public class ShotgunController : MonoBehaviour
         anim = GetComponent<Animator>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         originalCoolDown = coolDown;
+
+        // Sigma mode
+        if (GlobalVariables.SigmaMode)
+        {
+            coolDown /= 3;
+            originalCoolDown /= 3;
+            bulletsCount *= 3;
+        }
     }
 
     private void Update()
