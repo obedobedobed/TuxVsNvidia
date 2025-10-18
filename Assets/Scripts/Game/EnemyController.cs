@@ -6,20 +6,21 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Range damageRange;
     [SerializeField] private Range speedRange;
     [SerializeField] public float attackCooldown;
+    [SerializeField] private float angrySpeedMod;
     public float originalAttackCooldown { get; private set; }
     private GameObject player;
     private GameController gameController;
     private Animator anim;
 
-    public bool isAngry = false;
-    public bool inAttackRadius;
-    public float notAttacked = 0;
+    [HideInInspector] public bool isAngry = false;
+    [HideInInspector] public bool inAttackRadius;
 
     private int health;
     public int damage { get; private set; }
     private float speed;
 
     private bool dead = false;
+    private bool speedModed = false;
 
     private void Start()
     {
@@ -34,6 +35,12 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if(isAngry && !speedModed)
+        {
+            speed *= angrySpeedMod;
+            speedModed = true;
+        }
+
         if (health <= 0 && !dead)
         {
             gameController.DestroyCounterAdd();
@@ -43,7 +50,10 @@ public class EnemyController : MonoBehaviour
             dead = true;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if(player != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
 
         if (attackCooldown < originalAttackCooldown)
         {
@@ -51,16 +61,10 @@ public class EnemyController : MonoBehaviour
         }
 
         // Animations
-        notAttacked += Time.deltaTime;
 
         if (isAngry)
         {
             anim.SetBool("IsAngry", true);
-        }
-        else if (notAttacked > 0.4f)
-        {
-            anim.SetBool("IsAngry", false);
-            isAngry = false;
         }
 
         if (inAttackRadius)

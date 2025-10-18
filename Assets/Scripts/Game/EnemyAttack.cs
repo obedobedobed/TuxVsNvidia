@@ -8,20 +8,23 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
+        if(playerTmp != null)
+        {
+            player = playerTmp.GetComponent<PlayerController>();
+        }
         enemy = GetComponentInParent<EnemyController>();
     }
 
     private void Update()
     {
-        if (canAttack)
+        if (canAttack && player != null)
         {
             if(enemy.attackCooldown >= enemy.originalAttackCooldown)
             {
                 player.TakeDamage(enemy.damage);
                 enemy.isAngry = true;
-                enemy.notAttacked = 0;
-                enemy.attackCooldown = 0;
+                enemy.attackCooldown = 0f;
             }
         }
     }

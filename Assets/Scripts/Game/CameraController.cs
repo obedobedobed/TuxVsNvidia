@@ -7,13 +7,20 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
+        if(playerTmp != null)
+        {
+            player = playerTmp.GetComponent<Transform>();
+        }
     }
     
     private void Update()
     {
-        Vector3 targetPos = Vector3.Lerp(transform.position, player.position, Time.deltaTime * speed);
-        targetPos.z = -10;
-        transform.position = targetPos;
+        if(player != null)
+        {
+            Vector3 targetPos = Vector3.Lerp(transform.position, player.position, Time.deltaTime * speed);
+            targetPos.z = -10;
+            transform.position = targetPos;
+        }
     }
 }

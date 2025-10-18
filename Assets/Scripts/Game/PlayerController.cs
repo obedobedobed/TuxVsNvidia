@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private Animator anim;
+    private GameController gameController;
 
     private void Start()
     {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         // Death logic
         if(health <= 0)
         {
+            gameController.EndGame();
             Destroy(gameObject);
         }
 

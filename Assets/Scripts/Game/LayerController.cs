@@ -2,19 +2,28 @@ using UnityEngine;
 
 public class LayerController : MonoBehaviour
 {
-    private Transform playertTrans;
+    private Transform playerTrans;
     private SpriteRenderer sr;
     [SerializeField] private float offset;
 
     private void Start()
     {
-        playertTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
+        if(playerTmp != null)
+        {
+            playerTrans = playerTmp.GetComponent<Transform>();
+        }
         sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        bool playerIsUpper = playertTrans.position.y + offset > transform.position.y;
+        bool playerIsUpper = false;
+
+        if(playerTrans != null)
+        {
+            playerIsUpper = playerTrans.position.y + offset > transform.position.y;
+        }
 
         if (playerIsUpper)
         {

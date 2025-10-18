@@ -52,6 +52,7 @@ public class ToggleButton : MonoBehaviour
         {
             case WhatsDoing.SigmaMode:
                 GlobalVariables.SigmaMode = changeTo;
+                GlobalVariables.SaveBool(GlobalVariables.SigmaMode, "SigmaMode");
                 break;
         }
     }

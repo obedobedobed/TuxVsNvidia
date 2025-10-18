@@ -9,15 +9,25 @@ public class GameController : MonoBehaviour
     [SerializeField] private float timeToSpawnEnemy;
     [SerializeField] private Vector2 minEnSpawnPos;
     [SerializeField] private Vector2 maxEnSpawnPos;
+    [SerializeField] private float enemySpawnMod;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI enCountText;
-    [SerializeField] private TextMeshProUGUI enDestroyedText;
+    [SerializeField] private TextMeshProUGUI enDestroyedTextUI;
+
+    [Header("Pause UI")]
     [SerializeField] private GameObject exitConfirmMenu;
+
+    [Header("Game over UI")]
+    [SerializeField] private TextMeshProUGUI enDestroyedTextGO;
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private GameObject gameOverMenu;
+
     private float originalTimeToSpawnEnemy;
     private int enemiesCounter = 0;
     private int destroyedCounter = 0;
-    public bool gamePaused = false;
+    [HideInInspector] public bool gamePaused = false;
+    private Timer timeSurvived = new Timer();
 
     private void Start()
     {
@@ -36,6 +46,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        timeSurvived.UpdateTime(Time.deltaTime);
         SpawnEnemy();
         UpdateUI();
     }
@@ -53,6 +64,9 @@ public class GameController : MonoBehaviour
 
             timeToSpawnEnemy = originalTimeToSpawnEnemy;
             enemiesCounter++;
+
+            timeToSpawnEnemy /= enemySpawnMod;
+            originalTimeToSpawnEnemy /= enemySpawnMod;
         }
         else if (timeToSpawnEnemy > 0)
         {
@@ -64,7 +78,7 @@ public class GameController : MonoBehaviour
     {
         // Enemies counts
         enCountText.text = $"Enemies: {enemiesCounter}";
-        enDestroyedText.text = $"Enemies destroyed: {destroyedCounter}";
+        enDestroyedTextUI.text = $"Enemies destroyed: {destroyedCounter}";
     }
 
     private void ExitGame(InputAction.CallbackContext ctx)
@@ -79,5 +93,14 @@ public class GameController : MonoBehaviour
         // Adding destroyed enemies and removing it from counter
         destroyedCounter++;
         enemiesCounter--;
+    }
+
+    public void EndGame()
+    {
+        gameOverMenu.SetActive(true);
+        gameOverMenu.GetComponent<Animator>().SetTrigger("Animate");
+        timeText.text = $"Time: {timeSurvived.WriteTime()}";
+        enDestroyedTextGO.text = $"Enemies destroyed: {destroyedCounter}";
+        timeSurvived.ResetTime();
     }
 }
