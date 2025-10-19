@@ -10,4 +10,7 @@ Latest version v0.1.0:
 
 📦 Built with Mono
 
-❗ Im not trying to offend anyone, this game made for fun
+❗ ATTENTION:
+- Im NOT trying to offend anyone, take it as a joke
+- I have no connection with NVIDIA or the Linux Foundation
+- All matches in the game are completely random
