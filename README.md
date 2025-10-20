@@ -1,7 +1,7 @@
 # TuxVsNvidia
 🎮 Game with pixel graphics made with Unity 6000.2.5f1 by solo developer
 
-## Latest version v0.1.0
+## Latest version v0.1.1
 - Gameplay where Tux destroys Nvidia
 - Enemies spawning and attacks
 - Shotgun which shoots 5 bullets in random range
@@ -17,5 +17,5 @@
 
 ## ❗ ATTENTION
 - Im **NOT** trying to offend anyone, take it as a **joke**
-- I have **NO** connection with **NVIDIA** or the **Linux Foundation**
+- I have **NO** connection with **NVIDIA**, **AMD** or the **Linux Foundation**
 - All **matches** in the game are **completely random**
