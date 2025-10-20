@@ -7,6 +7,10 @@ TagManager:
   - ShotPoint
   - Enemy
   - Bullet
+  - PostProcessingCamera
+  - MenuController
+  - PlayerTest
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - Player
   - Bullet
   - Level
-  - 
-  - 
+  - EnemyAttackRadius
+  - Potion
   - 
   - 
   - 
