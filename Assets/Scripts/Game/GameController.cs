@@ -29,10 +29,6 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool gamePaused = false;
     private Timer timeSurvived = new Timer();
 
-    private void Start()
-    {
-        originalTimeToSpawnEnemy = timeToSpawnEnemy;
-    }
 
     private void OnEnable()
     {
@@ -42,6 +38,11 @@ public class GameController : MonoBehaviour
     private void OnDisable()
     {
         InputManager.Instance.actions.UI.Exit.performed -= ExitGame;
+    }
+
+    private void Start()
+    {
+        originalTimeToSpawnEnemy = timeToSpawnEnemy;
     }
 
     private void Update()

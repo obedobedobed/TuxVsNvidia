@@ -8,10 +8,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
-        if(playerTmp != null)
-        {
-            player = playerTmp.GetComponent<Transform>();
-        }
+        if(playerTmp != null) player = playerTmp.GetComponent<Transform>();
     }
     
     private void Update()

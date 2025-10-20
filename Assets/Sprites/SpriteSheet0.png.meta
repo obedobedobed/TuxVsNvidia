@@ -653,6 +653,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PotionBottle
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86eab04429b494971b57c4d9deb75b6c
+      internalID: 2146226218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PotionLiquid
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5f4dfde0022fcec912de21f7a5aef7
+      internalID: -1276162252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmdHealLiquid
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845b1a62a586abff2bafa129b415e11f
+      internalID: -666767149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -667,6 +733,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      AmdHealLiquid: -666767149
       Bullet: 825604652
       ButtonPressed: 1631163621
       ButtonUnpressed: -849545502
@@ -680,6 +747,8 @@ TextureImporter:
       NvidiaRun2: -840030009
       NvidiaRun2Angry: 110525846
       PlayIcon: 512183824
+      PotionBottle: 2146226218
+      PotionLiquid: -1276162252
       QuitIcon: -941954145
       SettingsIcon: -297489585
       Shotgun1: -277887046

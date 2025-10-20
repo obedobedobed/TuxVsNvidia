@@ -310,9 +310,11 @@ MonoBehaviour:
     MinimalValue: 0.1
     MaximalValue: 0.3
   attackCooldown: 2.5
+  angrySpeedMod: 1.3
+  healPotion: {fileID: 1666652861892122958, guid: 1b55920c9385db319b0d7f164990dfdc, type: 3}
+  healSpawnChance: 10
   isAngry: 0
   inAttackRadius: 0
-  notAttacked: 0
 --- !u!114 &1271228453410373967
 MonoBehaviour:
   m_ObjectHideFlags: 0

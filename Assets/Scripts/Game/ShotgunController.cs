@@ -6,7 +6,7 @@ public class ShotgunController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float coolDown;
     [SerializeField] private Range bulletsRange;
-    [SerializeField] private int bulletsCount;
+    [SerializeField] public int bulletsCount;
     [SerializeField] private AudioSource audShot;
     private float originalCoolDown;
     private bool looksRight = true;
@@ -29,8 +29,9 @@ public class ShotgunController : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        // Getting components
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        anim = GetComponent<Animator>();
         originalCoolDown = coolDown;
 
         // Sigma mode
@@ -44,6 +45,7 @@ public class ShotgunController : MonoBehaviour
 
     private void Update()
     {
+        // Folowing a cursor
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint
         (
             new Vector3
@@ -54,12 +56,13 @@ public class ShotgunController : MonoBehaviour
             )
         );
 
-        if(!isKnockbacking && !gameController.gamePaused)
+        if (!isKnockbacking && !gameController.gamePaused)
         {
             Vector2 direction = cursorPos - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            
+
+            // Fliping
             if (cursorPos.x < transform.position.x && looksRight)
             {
                 Flip();
@@ -70,12 +73,13 @@ public class ShotgunController : MonoBehaviour
             }
         }
 
-
+        // Cooldown
         if (coolDown < originalCoolDown)
         {
             coolDown += Time.deltaTime;
         }
 
+        // Animation (variables changes from unity animator)
         if (isKnockbacking)
         {
             if (!knockbackRight)
@@ -93,8 +97,10 @@ public class ShotgunController : MonoBehaviour
     {
         if (coolDown >= originalCoolDown && !gameController.gamePaused)
         {
+            // Getting shotpoint
             Transform shotPoint = GameObject.FindGameObjectWithTag("ShotPoint").GetComponent<Transform>();
 
+            // Shooting bulletsCount bullets
             for (int i = 0; i < bulletsCount; i++)
             {
                 Quaternion targetRot = Quaternion.Euler
@@ -107,10 +113,11 @@ public class ShotgunController : MonoBehaviour
                 Instantiate(bulletPrefab, shotPoint.position, targetRot);
             }
 
+            // Cooldown
             coolDown = 0;
-
+            // Animations
             anim.SetTrigger("Shoot");
-
+            // Sounds
             AudioManager.PlaySFX(audShot, false);
         }
     }

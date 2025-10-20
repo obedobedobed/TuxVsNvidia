@@ -9,10 +9,7 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
-        if(playerTmp != null)
-        {
-            player = playerTmp.GetComponent<PlayerController>();
-        }
+        if(playerTmp != null) player = playerTmp.GetComponent<PlayerController>();
         enemy = GetComponentInParent<EnemyController>();
     }
 

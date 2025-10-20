@@ -12,7 +12,7 @@ public class Timer
     {
         totalSeconds += update;
 
-        seconds = (int)Mathf.Floor(totalSeconds);
+        seconds = (int)totalSeconds;
 
         if (seconds >= 60)
         {

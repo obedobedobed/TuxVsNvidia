@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Range speedRange;
     [SerializeField] public float attackCooldown;
     [SerializeField] private float angrySpeedMod;
+    [SerializeField] private GameObject healPotion;
+    [SerializeField] private int healSpawnChance;
     public float originalAttackCooldown { get; private set; }
     private GameObject player;
     private GameController gameController;
@@ -24,10 +26,12 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        // Getting components
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         anim = GetComponent<Animator>();
         originalAttackCooldown = attackCooldown;
         player = GameObject.FindGameObjectWithTag("Player");
+        // Getting values from ranges
         health = (int)Random.Range(healthRange.MinimalValue, healthRange.MaximalValue);
         damage = (int)Random.Range(damageRange.MinimalValue, damageRange.MaximalValue);
         speed = Random.Range(speedRange.MinimalValue, speedRange.MaximalValue);
@@ -35,33 +39,40 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        // Angry mode
         if(isAngry && !speedModed)
         {
             speed *= angrySpeedMod;
             speedModed = true;
         }
 
+        // Death
         if (health <= 0 && !dead)
         {
             gameController.DestroyCounterAdd();
             anim.SetTrigger("Death");
-            Invoke(nameof(SelfDestroy), 0.5f);
             damage = 0;
             dead = true;
+            if (Random.Range(0, 100) < healSpawnChance)
+            {
+                Instantiate(healPotion, transform.position, Quaternion.identity);
+            }
+            Invoke(nameof(SelfDestroy), 0.5f);
         }
 
+        // Moving
         if(player != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
+        // Cooldown
         if (attackCooldown < originalAttackCooldown)
         {
             attackCooldown += Time.deltaTime;
         }
 
         // Animations
-
         if (isAngry)
         {
             anim.SetBool("IsAngry", true);
@@ -79,6 +90,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Getting damage
         if (collision.gameObject.CompareTag("Bullet"))
         {
             health--;
