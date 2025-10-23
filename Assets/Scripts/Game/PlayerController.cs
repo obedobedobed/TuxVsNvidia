@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audStep;
     [SerializeField] private Range audStepPitchRange;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private AudioSource audDrink;
     private int maxHealth;
     private bool isRuning = false;
     private Vector2 direction;
@@ -73,12 +74,12 @@ public class PlayerController : MonoBehaviour
         if (direction != new Vector2(0, 0) && !isRuning)
         {
             isRuning = true;
-            AudioManager.PlaySFX(audStep, false);
+            AudioManager.PlaySFX(audStep);
         }
         else if (direction == new Vector2(0, 0) && isRuning)
         {
             isRuning = false;
-            AudioManager.PlaySFX(audStep, true);
+            AudioManager.PlaySFX(audStep, stop: true);
         }
     }
 
@@ -115,10 +116,13 @@ public class PlayerController : MonoBehaviour
         shotgun.bulletsCount = originalBulletsCount;
     }
 
+    // Methods for potions
     public bool Heal(int heal)
     {
         if (health != maxHealth)
         {
+            AudioManager.PlaySFX(audDrink);
+
             if (health + heal < maxHealth)
             {
                 health += heal;
@@ -131,5 +135,20 @@ public class PlayerController : MonoBehaviour
             }
         }
         else return false;
+    }
+
+    public bool SpeedUp(float speedUp)
+    {
+        AudioManager.PlaySFX(audDrink);
+        speed *= speedUp;
+        StartCoroutine(SpeedDown(speedUp));
+        
+        return true;
+    }
+
+    private IEnumerator SpeedDown(float speedDown)
+    {
+        yield return new WaitForSeconds(5);
+        speed /= speedDown;
     }
 }

@@ -276,7 +276,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0008638948, y: 0.0019437671}
+  m_Offset: {x: -0.00012791902, y: 0.0019437671}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -286,7 +286,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.11031374, y: 0.0666869}
+  m_Size: {x: 0.10884179, y: 0.0666869}
   m_EdgeRadius: 0
 --- !u!114 &6066758552536308554
 MonoBehaviour:
@@ -311,10 +311,13 @@ MonoBehaviour:
     MaximalValue: 0.3
   attackCooldown: 2.5
   angrySpeedMod: 1.3
-  healPotion: {fileID: 1666652861892122958, guid: 1b55920c9385db319b0d7f164990dfdc, type: 3}
-  healSpawnChance: 10
+  potions:
+  - {fileID: 1666652861892122958, guid: 1b55920c9385db319b0d7f164990dfdc, type: 3}
+  - {fileID: 2630897136425297915, guid: d3ee25808a93224efb34a6292444d0e9, type: 3}
+  potionSpawnChance: 10
   isAngry: 0
   inAttackRadius: 0
+  death: 0
 --- !u!114 &1271228453410373967
 MonoBehaviour:
   m_ObjectHideFlags: 0

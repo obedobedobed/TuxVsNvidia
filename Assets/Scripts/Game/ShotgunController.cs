@@ -118,7 +118,7 @@ public class ShotgunController : MonoBehaviour
             // Animations
             anim.SetTrigger("Shoot");
             // Sounds
-            AudioManager.PlaySFX(audShot, false);
+            AudioManager.PlaySFX(audShot);
         }
     }
 

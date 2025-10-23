@@ -7,12 +7,14 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        // Getting player
         GameObject playerTmp = GameObject.FindGameObjectWithTag("Player");
         if(playerTmp != null) player = playerTmp.GetComponent<Transform>();
     }
     
     private void Update()
     {
+        // Following player
         if(player != null)
         {
             Vector3 targetPos = Vector3.Lerp(transform.position, player.position, Time.deltaTime * speed);

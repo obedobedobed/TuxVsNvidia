@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Range speedRange;
     [SerializeField] public float attackCooldown;
     [SerializeField] private float angrySpeedMod;
-    [SerializeField] private GameObject healPotion;
-    [SerializeField] private int healSpawnChance;
+    [SerializeField] private GameObject[] potions;
+    [SerializeField] private int potionSpawnChance;
     public float originalAttackCooldown { get; private set; }
     private GameObject player;
     private GameController gameController;
@@ -21,7 +21,9 @@ public class EnemyController : MonoBehaviour
     public int damage { get; private set; }
     private float speed;
 
-    private bool dead = false;
+    [HideInInspector] public bool death = false;
+    private bool dead;
+    [HideInInspector] public bool autoDeath = false;
     private bool speedModed = false;
 
     private void Start()
@@ -40,23 +42,26 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         // Angry mode
-        if(isAngry && !speedModed)
+        if (isAngry && !speedModed)
         {
             speed *= angrySpeedMod;
             speedModed = true;
         }
 
         // Death
-        if (health <= 0 && !dead)
+        if (health <= 0 && !dead) death = true;
+
+        if (death)
         {
             gameController.DestroyCounterAdd();
             anim.SetTrigger("Death");
             damage = 0;
-            dead = true;
-            if (Random.Range(0, 100) < healSpawnChance)
+            if (Random.Range(0, 100) < potionSpawnChance && !autoDeath)
             {
-                Instantiate(healPotion, transform.position, Quaternion.identity);
+                Instantiate(potions[Random.Range(0, potions.Length)], transform.position, Quaternion.identity);
             }
+            death = false;
+            dead = true;
             Invoke(nameof(SelfDestroy), 0.5f);
         }
 
