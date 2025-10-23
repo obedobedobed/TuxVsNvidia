@@ -3,6 +3,7 @@
 
 ## Latest version v0.1.2
 You can download game from **Releases**
+
 🖥  Available on **Windows** and **Linux**
 
 ## 📦 How to build
