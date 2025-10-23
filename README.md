@@ -2,10 +2,7 @@
 🎮 Game with pixel graphics made with Unity 6000.2.5f1 by solo developer
 
 ## Latest version v0.1.2
-- Gameplay where Tux destroys Nvidia
-- Enemies spawning and attacks
-- Shotgun which shoots 5 bullets in random range
-
+You can download game from **Releases**
 🖥  Available on **Windows** and **Linux**
 
 ## 📦 How to build
