@@ -807,6 +807,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ArchIdle1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 75
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793299a4c0ecb2e28982f862e40f90c6
+      internalID: 1979599689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchIdle2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 75
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3ef0fe08b042f949b30b0ccc82813e
+      internalID: -207490385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 91
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ed9937f63ae5ccba9477d814e4b0fa
+      internalID: -1635999598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -822,6 +888,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       AmdHealLiquid: -666767149
+      ArchIdle1: 1979599689
+      ArchIdle2: -207490385
+      Box: -1635999598
       Bullet: 825604652
       ButtonPressed: 1631163621
       ButtonUnpressed: -849545502
