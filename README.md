@@ -1,7 +1,7 @@
 # TuxVsNvidia
 🎮 Game with pixel graphics made with Unity 6000.2.5f1 by solo developer
 
-## Latest version v0.1.2
+## Latest version v0.1.3
 You can download game from **Releases**
 
 🖥  Available on **Windows** and **Linux**
