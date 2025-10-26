@@ -11,6 +11,9 @@ TagManager:
   - MenuController
   - PlayerTest
   - Ground
+  - Canvas
+  - Potion
+  - Shield
   layers:
   - Default
   - TransparentFX
