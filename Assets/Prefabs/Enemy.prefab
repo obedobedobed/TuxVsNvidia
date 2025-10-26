@@ -315,6 +315,7 @@ MonoBehaviour:
   - {fileID: 1666652861892122958, guid: 1b55920c9385db319b0d7f164990dfdc, type: 3}
   - {fileID: 2630897136425297915, guid: d3ee25808a93224efb34a6292444d0e9, type: 3}
   - {fileID: 7319176229707683104, guid: ecbaa4d19f0a17697b5cc5abcef0a210, type: 3}
+  - {fileID: 4674613550030516198, guid: 3d2e460ce8ec470418578ca081ab1cd0, type: 3}
   potionSpawnChance: 10
   isAngry: 0
   inAttackRadius: 0

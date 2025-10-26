@@ -816,7 +816,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -838,7 +838,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -852,11 +852,77 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box
+      name: SpeedUpBuff
       rect:
         serializedVersion: 2
         x: 115
         y: 91
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ed9937f63ae5ccba9477d814e4b0fa
+      internalID: -1635999598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShieldBuff
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 74
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca92f975d25fb15796a540a81053df8
+      internalID: -1996391377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinuxCoin
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 57
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a490ca2e10f5ed85aaa5f3ea2e7735ee
+      internalID: 1430625803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 198
         width: 16
         height: 16
       alignment: 0
@@ -867,8 +933,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79ed9937f63ae5ccba9477d814e4b0fa
-      internalID: -1635999598
+      spriteID: c01b67e6fbf6d300487ab3ff52748577
+      internalID: 2100849730
       vertices: []
       indices: 
       edges: []
@@ -890,10 +956,10 @@ TextureImporter:
       AmdHealLiquid: -666767149
       ArchIdle1: 1979599689
       ArchIdle2: -207490385
-      Box: -1635999598
       Bullet: 825604652
       ButtonPressed: 1631163621
       ButtonUnpressed: -849545502
+      LinuxCoin: 1430625803
       LocalizationIcon: 179315791
       NvidiaDead: 1299379371
       NvidiaIdle1: 1822146866
@@ -904,18 +970,21 @@ TextureImporter:
       NvidiaRun1Angry: -1150576358
       NvidiaRun2: -840030009
       NvidiaRun2Angry: 110525846
+      Pacman: 2100849730
       PlayIcon: 512183824
       PotionBottle: 2146226218
       PotionLiquid: -1276162252
       QuitIcon: -941954145
       SettingsIcon: -297489585
       Shield: -825476623
+      ShieldBuff: -1996391377
       Shotgun1: -277887046
       Shotgun2: 1687598306
       Shotgun3: 60683151
       SliderBackground: 1426977015
       SliderFilling: 1088562974
       SliderHandler: 602954680
+      SpeedUpBuff: -1635999598
       TogglerOff: 2071117263
       TogglerOn: -627317369
       TuxIdle1: 2718136431699408956

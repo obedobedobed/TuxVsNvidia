@@ -58,7 +58,12 @@ public class EnemyController : MonoBehaviour
             damage = 0;
             if (Random.Range(0, 100) < potionSpawnChance && !autoDeath)
             {
-                Instantiate(potions[Random.Range(0, potions.Length)], transform.position, Quaternion.identity);
+                GameObject choosedPotion = potions[Random.Range(0, potions.Length)];
+                while (choosedPotion == potions[3] && !PlayerBuffs.Pacman)
+                {
+                    choosedPotion = potions[Random.Range(0, potions.Length)];
+                }
+                Instantiate(choosedPotion, transform.position, Quaternion.identity);
             }
             death = false;
             dead = true;

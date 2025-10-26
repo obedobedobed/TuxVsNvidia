@@ -1,4 +1,5 @@
 using System.Collections;
+using Mono.Cecil.Cil;
 using TMPro;
 using UnityEngine;
 
@@ -9,11 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audStep;
     [SerializeField] private Range audStepPitchRange;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI coinsText;
     [SerializeField] private AudioSource audDrink;
     [SerializeField] private GameObject shield;
     private int maxHealth;
     private bool isRuning = false;
     private bool underShield = false;
+    public int coins { get; private set; } = 0;
     private Vector2 direction;
     private Rigidbody2D rb;
     private Animator anim;
@@ -87,8 +90,16 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // For no health under zero
+        // Checking for shield
         if (underShield) return;
+
+        // Checking for buff
+        if (PlayerBuffs.MIT)
+        {
+            if (Random.Range(0, 100) < 5) return;
+        }
+        
+        // For no health under zero
         if (health - damage > 0) health -= damage;
         else if (health - damage <= 0) health = 0;
     }
@@ -116,9 +127,9 @@ public class PlayerController : MonoBehaviour
         else return false;
     }
 
-    public bool SpeedUp(float speedUp)
+    public bool SpeedUp(float speedUp, bool fromShop = false)
     {
-        AudioManager.PlaySFX(audDrink);
+        if(!fromShop) AudioManager.PlaySFX(audDrink);
 
         // Moding speed by speed modifier
         speed *= speedUp;
@@ -135,11 +146,11 @@ public class PlayerController : MonoBehaviour
         speed /= speedDown;
     }
 
-    public bool TakeShield()
+    public bool TakeShield(bool fromShop = false)
     {
         if (!underShield)
         {
-            AudioManager.PlaySFX(audDrink);
+            if(!fromShop) AudioManager.PlaySFX(audDrink);
 
             // Activating shield
             shield.SetActive(true);
@@ -158,5 +169,33 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(10);
         shield.SetActive(false);
         underShield = false;
+    }
+
+    // This method needs to shop
+    public void BuffOnWaveStart(PotionType potionType, object potionValue = null)
+    {
+        StartCoroutine(BuffOnWaveStartCoroutine(potionType, potionValue));
+    }
+    public IEnumerator BuffOnWaveStartCoroutine(PotionType potionType, object potionValue)
+    {
+        AudioManager.PlaySFX(audDrink);
+
+        // Waiting for wave start
+        Debug.Log((float)gameController.getTimeToNewWave - gameController.timeToNewWaveTimer.totalSeconds);
+        yield return new WaitForSeconds
+        (
+            (float)gameController.getTimeToNewWave - gameController.timeToNewWaveTimer.totalSeconds
+        );
+
+        // Applying potion effect
+        switch (potionType)
+        {
+            case PotionType.SpeedUp:
+                SpeedUp((float)potionValue, fromShop: true);
+                break;
+            case PotionType.Shield:
+                TakeShield(fromShop: true);
+                break;
+        }
     }
 }

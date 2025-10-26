@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PotionController : MonoBehaviour
 {
     [SerializeField] private PotionType potionType;
+    [SerializeField] private bool inShop;
     private int heal = 3;
     private float speedUp = 1.5f;
     private PlayerController player;
@@ -11,12 +12,12 @@ public class PotionController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.Instance.actions.Player.Interact.performed += Heal;
+        InputManager.Instance.actions.Player.Interact.performed += Use;
     }
 
     private void OnDisable()
     {
-        InputManager.Instance.actions.Player.Interact.performed -= Heal;
+        InputManager.Instance.actions.Player.Interact.performed -= Use;
     }
 
     private void Start()
@@ -26,7 +27,7 @@ public class PotionController : MonoBehaviour
         if (playerTmp != null) player = playerTmp.GetComponent<PlayerController>();
     }
 
-    private void Heal(InputAction.CallbackContext ctx)
+    private void Use(InputAction.CallbackContext ctx)
     {
         // Checking for player in potion zone and calling method
         if (playerCanUse)
@@ -40,6 +41,10 @@ public class PotionController : MonoBehaviour
                 case PotionType.SpeedUp:
                     bool speedUpped = player.SpeedUp(speedUp);
                     if (speedUpped) Destroy(gameObject);
+                    break;
+                case PotionType.Pacman:
+                    bool pacmaned = player.SpeedUp(speedUp * 2);
+                    if (pacmaned) Destroy(gameObject);
                     break;
                 case PotionType.Shield:
                     bool takedShield = player.TakeShield();
@@ -59,8 +64,8 @@ public class PotionController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) playerCanUse = false;
     }
 
-    private enum PotionType
-    {
-        Heal, SpeedUp, Shield
-    }
+}
+public enum PotionType
+{
+    Heal, SpeedUp, Shield, Pacman
 }

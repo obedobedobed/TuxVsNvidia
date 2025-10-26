@@ -28,10 +28,16 @@ public class GameController : MonoBehaviour
     [Header("Waves")]
     [SerializeField] private int timeToNewWave;
     [SerializeField] private int timeToWaveEnd;
-
+    public int getTimeToNewWave
+    {
+        get
+        {
+            return timeToNewWave;
+        }
+    }
     private bool waveIsGoing = false;
     private int currentWave = 1;
-    private Timer timeToNewWaveTimer = new Timer();
+    public Timer timeToNewWaveTimer { get; private set; } = new Timer();
     private Timer timeToWaveEndTimer = new Timer();
     private float originalTimeToSpawnEnemy;
     private int enemiesCounter = 0;
